@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sds-color-text-default-default: #333;
+  --sds-typography-body-font-weight-regular: 400;
+  /* Add more variables as needed */
+}
