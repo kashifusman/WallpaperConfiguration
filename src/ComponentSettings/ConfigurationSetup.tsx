@@ -68,7 +68,6 @@ const ConfigurationSetup: React.FC<ConfigurationSetupProps> = () => {
         {componentSections.map((section, index) => (
           <ComponentSection
             key={section.id}
-            index={index}
             title={section.title}
             inputType={section.inputType}
             onRemove={() => handleRemoveSection(section.id)} // Pass the correct index

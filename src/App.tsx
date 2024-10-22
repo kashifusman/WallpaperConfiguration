@@ -1,6 +1,7 @@
 import "./App.css";
-import ConfigurationPage from "./ConfigurationPage";
-import ConfigurationSetup from "./ConfigurationSetup";
+import ConfigurationPage from "./MainList/ConfigurationPage";
+import ConfigurationSetup from "./ComponentSettings/ConfigurationSetup";
+import AddRecords from "./AddRecords/AddRecords";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ConfigurationPage />} />
         <Route path="/setup" element={<ConfigurationSetup id="1" />} />
+        <Route path="/addRecords" element={<AddRecords />} />
       </Routes>
     </Router>
     // <>

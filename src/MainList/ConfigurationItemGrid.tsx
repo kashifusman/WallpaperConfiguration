@@ -1,5 +1,5 @@
 import React from "react";
-import ConfigurationItemBox from "./ConfigurationItemBox";
+import ConfigurationItemBox from "../ConfigurationItemBox";
 
 interface ConfigurationItemData {
   imageSrc: string;

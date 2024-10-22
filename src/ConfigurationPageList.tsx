@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import Header from "./AddRecords/Header";
 import ConfigurationList from "./ConfigurationList";
 
 const ConfigurationPageList: React.FC = () => {

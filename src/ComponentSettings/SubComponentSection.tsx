@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SubComponentSectionFields from "./SubComponentSectionFields";
+import { v4 as uuidv4 } from "uuid";
 
 interface SubComponentSectionProps {
   title: string;
@@ -11,21 +12,27 @@ const SubComponentSection: React.FC<SubComponentSectionProps> = ({
   inputType,
 }) => {
   const [subComponentFields, setSubComponentFields] = useState<
-    { title: string; inputType: string }[]
-  >([{ title: "Component Title", inputType: "Input Text" }]);
+    { id: string; title: string; inputType: string }[]
+  >([{ id: uuidv4(), title: "Component Title", inputType: "Input Text" }]);
 
   const handleAddSubComponentFields = () => {
     setSubComponentFields((prevSections) => [
       ...prevSections,
-      { title: title, inputType: inputType },
+      { id: uuidv4(), title: title, inputType: inputType },
     ]);
   };
 
-  const handleRemoveSubComponentFields = (index: number) => {
-    setSubComponentFields((prevSections) =>
-      prevSections.filter((_, i) => i !== index)
+  const handleRemoveSubComponentFields = (idToRemove: string) => {
+    setSubComponentFields((prevSection) =>
+      prevSection.filter((section) => section.id !== idToRemove)
     );
   };
+
+  // const handleRemoveSubComponentFields = (index: number) => {
+  //   setSubComponentFields((prevSections) =>
+  //     prevSections.filter((_, i) => i !== index)
+  //   );
+  // };
 
   return (
     <section className="flex flex-col pt-5 pr-5 pb-2.5 pl-24 mt-2.5 w-full rounded-xl bg-neutral-100 font-[number:var(--sds-typography-body-font-weight-regular)] text-[length:var(--sds-typography-body-size-medium)] max-md:pl-5 max-md:max-w-full">
@@ -34,10 +41,10 @@ const SubComponentSection: React.FC<SubComponentSectionProps> = ({
       </h2>
       {subComponentFields.map((section, index) => (
         <SubComponentSectionFields
-          key={index}
+          key={section.id}
           title={section.title}
           inputType={section.inputType}
-          onRemove={() => handleRemoveSubComponentFields(index)}
+          onRemove={() => handleRemoveSubComponentFields(section.id)}
           isRemovable={index !== 0}
         />
       ))}

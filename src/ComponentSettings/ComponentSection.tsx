@@ -3,7 +3,6 @@ import Dropdown from "./Dropdown";
 import SubComponentSection from "./SubComponentSection";
 
 interface ComponentSectionProps {
-  index: number;
   title: string;
   inputType: string;
   onRemove: () => void;
@@ -11,7 +10,6 @@ interface ComponentSectionProps {
 }
 
 const ComponentSection: React.FC<ComponentSectionProps> = ({
-  index,
   title,
   inputType,
   onRemove,
@@ -61,7 +59,6 @@ const ComponentSection: React.FC<ComponentSectionProps> = ({
           >
             Component Title
           </label>
-          <h1>{`key: ${index}`}</h1>
           <input
             type="text"
             id={`component-title-${title}`}

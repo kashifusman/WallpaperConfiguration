@@ -8,6 +8,10 @@ const FilterButtons: React.FC = () => {
     navigate("/setup");
   };
 
+  const handleAddRecordsClick = () => {
+    navigate("/addRecords");
+  };
+
   return (
     <div className="flex gap-2 items-start self-stretch my-auto min-w-[240px] text-[color:var(--sds-color-text-brand-tertiary)] max-md:max-w-full">
       <button className="flex gap-2 justify-center items-center p-2 whitespace-nowrap rounded-lg bg-zinc-800 text-[color:var(--sds-color-text-brand-on-brand)]">
@@ -30,6 +34,12 @@ const FilterButtons: React.FC = () => {
         className="gap-2 self-stretch p-2 whitespace-nowrap rounded-lg bg-neutral-100"
       >
         Add Configuration
+      </button>
+      <button
+        onClick={handleAddRecordsClick}
+        className="gap-2 self-stretch p-2 whitespace-nowrap rounded-lg bg-neutral-100"
+      >
+        Add Records
       </button>
     </div>
   );
